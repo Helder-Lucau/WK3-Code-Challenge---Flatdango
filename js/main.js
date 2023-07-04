@@ -1,5 +1,7 @@
 //db.json api URL
 const apiURL = 'http://localhost:3000/films';
+const movieListContainer = document.getElementById('menu-list')
+const movieItemDetails = document.getElementById('no-next-page')
 
 //function that fetch the first movie data from the JSON db
 function getFirstMovie(){
@@ -23,16 +25,35 @@ function getFirstMovie(){
     })
 }
 
+function showAllMovies() {
+    fetch(apiURL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        data.forEach(movieMenu => {
+             const movie = document.createElement('li')
+             movie.innerText = movieMenu.title
+             movieListContainer.append(movie)   
+             
+             movie.addEventListener('click', () => {
+                printMovieMenu(movieMenu)
+             })
+        })
+    })
+}
+
 function printMovieMenu(movieMenu){
+
+    movieItemDetails.innerHTML=""
 
     let menu = document.createElement('li');
     menu.className = 'movie-menu'
     menu.innerHTML = `
         <img src="${movieMenu.poster}" alt="poster" class='pst'>
         <div class = "movie-content">
-            <h3>${movieMenu.title}</h3>
+            <h3>Title: ${movieMenu.title}</h3>
             <p>${movieMenu.description}</p>
-            <p><span>Duration:</span> ${movieMenu.runtime} min</p>
+            <p><span>Duration:</span> ${movieMenu.runtime} minutes</p>
             <p><span>Showtimes:</span> ${movieMenu.showtime} </p>
         </div>
         <div class="button">
@@ -47,11 +68,11 @@ function printMovieMenu(movieMenu){
     document.querySelector('#menu-list').appendChild(menu)
 }
 
-function getAllMovies(){
-    fetch(apiURL)
-    .then(res => res.json())
-    .then(data => data.forEach(movieMenu => printMovieMenu(movieMenu)))
-}
+// function getAllMovies(){
+//     fetch(apiURL)
+//     .then(res => res.json())
+//     .then(data => data.forEach(movieMenu => printMovieMenu(movieMenu)))
+// }
 //function to delete from the db.json
 function deleteMovie(id){
     console.log(id);
@@ -67,6 +88,7 @@ function deleteMovie(id){
 
 function initialize(){
     getFirstMovie()
-    getAllMovies()
+    // getAllMovies()
+    showAllMovies()
 }
 initialize()

@@ -39,18 +39,59 @@ a:hover{
     background-repeat: no-repeat; 
 }
 #section-two {
-    
-}
-#section-three {
-    background-color: #3a98a2;
-    height: 2000px;
+    height: 5%;
     font-family: 'IBM Plex Sans Condensed', sans-serif;
     text-align: center;
 }
+#section-three {
+    background-color: lightblue;
+    height: 5%;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+}
 section .movie-content {
-    display: flex;
+    display: inline;
     justify-content: space-around;
     align-items: center;
     margin: auto;
+    border-spacing: 10%;
+}
+section .pst {
+    margin-top: 50px;
+    width: 1000px;
+    height: 1000px;
+}
+section .button #buy-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    background-color: #f90550;
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px 28px;
+}
+section .button #delete-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    background-color: #f90550;
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px 28px;
+}
+.movie-content h3 {
+    font-size: 30px;
+}
+.movie-content p {
+    font-size: 20px;
+}
+.movie-menu span {
+    color: red;
 }
 
