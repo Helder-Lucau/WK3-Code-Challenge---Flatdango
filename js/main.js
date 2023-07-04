@@ -44,7 +44,7 @@ function showAllMovies() {
 
 function printMovieMenu(movieMenu){
 
-    movieItemDetails.innerHTML=""
+    movieItemDetails.innerHTML= " "
 
     let menu = document.createElement('li');
     menu.className = 'movie-menu'
@@ -65,14 +65,9 @@ function printMovieMenu(movieMenu){
         menu.remove()
         deleteMovie(movieMenu.id)
     })
-    document.querySelector('#menu-list').appendChild(menu)
+    movieItemDetails.appendChild(menu)
 }
 
-// function getAllMovies(){
-//     fetch(apiURL)
-//     .then(res => res.json())
-//     .then(data => data.forEach(movieMenu => printMovieMenu(movieMenu)))
-// }
 //function to delete from the db.json
 function deleteMovie(id){
     console.log(id);
@@ -88,7 +83,6 @@ function deleteMovie(id){
 
 function initialize(){
     getFirstMovie()
-    // getAllMovies()
     showAllMovies()
 }
 initialize()
